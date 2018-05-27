@@ -1,4 +1,4 @@
-package com.koc.dogs_paging_network_cache.ui
+package com.koc.dogs_paging_network_cache.view
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
