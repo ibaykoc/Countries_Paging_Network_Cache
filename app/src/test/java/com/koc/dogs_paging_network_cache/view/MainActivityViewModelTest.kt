@@ -12,7 +12,6 @@ class MainActivityViewModelTest {
     @Test
     fun whenLoadDataCalled_ShouldCallRepoGetData() {
         mainActivityViewModel.loadData()
-
         Mockito.verify(dogRepo).getData()
     }
 
