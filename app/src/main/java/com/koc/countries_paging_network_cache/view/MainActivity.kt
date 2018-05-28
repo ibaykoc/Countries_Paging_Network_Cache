@@ -6,17 +6,22 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import com.koc.countries_paging_network_cache.R
+import kotlinx.android.synthetic.main.activity_main.*
 import org.koin.android.ext.android.inject
 
 class MainActivity : AppCompatActivity() {
 
     val logTag = this::class.java.simpleName
 
+    private val countriesListAdapter = CountriesListAdapter()
+
     lateinit var viewModel: MainActivityViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        countries_list.adapter = countriesListAdapter
 
         //Inject ViewModel Repo
         val viewModelFactory: MainViewModelFactory by inject()
@@ -29,7 +34,7 @@ class MainActivity : AppCompatActivity() {
 
         viewModel.data.observe(this, Observer {
             it?.let {
-                    Log.d(logTag, "Data change")
+                    countriesListAdapter.submitList(it)
             }
         })
 
