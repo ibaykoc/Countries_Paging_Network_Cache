@@ -1,4 +1,4 @@
-package com.koc.dogs_paging_network_cache
+package com.koc.countries_paging_network_cache
 
 import android.support.test.InstrumentationRegistry
 import android.support.test.runner.AndroidJUnit4
